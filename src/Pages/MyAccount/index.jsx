@@ -1,12 +1,11 @@
-function MyAccount() {
+import { Layout } from "../../Components/Layout"
+
+export const MyAccount = () => {
   
 
     return (
-      <div className='bg-red-100'>
-  <h1>MyAccount</h1>
-      </div>
+      <Layout>
+      my acacount
+     </Layout>
     )
   }
-  
-  export default MyAccount
-  
