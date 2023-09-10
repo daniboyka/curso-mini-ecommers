@@ -16,8 +16,7 @@ export const  Home = () => {
   home
   <div className='grid grid-cols-4 gap-4 w-full max-w-screen-xl'>
   {
-    items?.map((item) =>{
-      console.log(item.title)
+    items?.map((item) =>{    
       return <Card key={item.id} category={item.category} title={item.title} image={item.image} price={item.price}/>
 
     })
