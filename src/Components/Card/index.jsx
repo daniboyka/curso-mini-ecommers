@@ -3,8 +3,9 @@ import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context";
 
 
+// eslint-disable-next-line react/prop-types
 export const Card = ({ category, title, image, price }) => {
-const Context = useContext(ShoppingCartContext)//tra
+const Context = useContext(ShoppingCartContext)//traemos el Contexto, con esto le decimos que queremos q lea el estado global
 
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">

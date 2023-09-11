@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom"
+import { useContext } from "react"
+import { ShoppingCartContext } from "../../Context"
+
 
 export const Navbar = () => {
+    const Context = useContext(ShoppingCartContext)//traemos el Contexto, con esto le decimos que queremos q lea el estado global
+
 let EstaActivo = 'underline underline-offset-4'
 
     return(
@@ -89,7 +94,7 @@ let EstaActivo = 'underline underline-offset-4'
                     </NavLink>
                 </li>
                 <li>
-                    C-0
+                    C-{Context.count}
                 </li>               
             </ul>
         </nav>
