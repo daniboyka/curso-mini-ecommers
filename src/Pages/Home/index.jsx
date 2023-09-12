@@ -22,7 +22,7 @@ export const  Home = () => {
   <div className='grid grid-cols-4 gap-4 w-full max-w-screen-xl'>
   {
     items?.map((item) =>{    
-      return <Card key={item.id} category={item.category} title={item.title} image={item.image} price={item.price}/>
+      return <Card item={item} key={item.id} category={item.category} title={item.title} image={item.image} price={item.price}/>
 
     })
   }

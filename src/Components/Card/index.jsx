@@ -1,16 +1,28 @@
 // eslint-disable-next-line react/prop-types
 import { PlusCircleIcon } from '@heroicons/react/24/solid'
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ShoppingCartContext } from "../../Context";
 
 
 // eslint-disable-next-line react/prop-types
-export const Card = ({ category, title, image, price }) => {
-const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
-
+export const Card = ({ item, category, title, image, price }) => {
+  const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
+  const [datos, setDatos]= useState(item)
+  
+  
+  //funcion q manda la informacion de los detalles a la ventanita
+  const showProduct = () => {
+    funcionReceptora(datos)
+    console.log(datos)
+  Context.openProductDetail()
+  // Context.setProductToShow(datos)
+}
+const funcionReceptora = (aca) =>{
+  aca
+}
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg"
-    onClick={() => Context.openProductDetail()}
+    onClick={() =>showProduct()}
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">{category}</span>
