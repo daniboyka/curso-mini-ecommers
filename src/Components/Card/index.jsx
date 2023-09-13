@@ -5,21 +5,20 @@ import { ShoppingCartContext } from "../../Context";
 
 
 // eslint-disable-next-line react/prop-types
-export const Card = ({ item, category, title, image, price }) => {
+export const Card = ({ onHandlenItem, item }) => {
+  
+  const {category, title, image, price}=item
+  
   const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
   const [datos, setDatos]= useState(item)
   
   
   //funcion q manda la informacion de los detalles a la ventanita
   const showProduct = () => {
-    funcionReceptora(datos)
-    console.log(datos)
+    onHandlenItem()
   Context.openProductDetail()
-  // Context.setProductToShow(datos)
 }
-const funcionReceptora = (aca) =>{
-  aca
-}
+
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg"
     onClick={() =>showProduct()}
