@@ -10,19 +10,23 @@ const API2 = "https://api.escuelajs.co/api/v1/products";
 export const Home = () => {
   const [items, setItems] = useState(null);
   const [selecItem, setselecItem] = useState(null);
-
+  
   useEffect(() => {
     fetch(API1)
-      .then((response) => response.json())
-      .then((data) => setItems(data));
+    .then((response) => response.json())     
+    .then((data) => setItems(data));
   }, []);
+  const pasarDato = (a) =>{
+    setselecItem(a)
+  }
   return (
     <Layout>
       home
       <div className="grid grid-cols-4 gap-4 w-full max-w-screen-xl">
-        {items?.map((item) => {
+        {items?.map((item) => {     
+               
           return (
-            <Card onHandlenItem={() => setselecItem(item)} item={item} key={item.id} />
+            <Card gatoi={() => pasarDato(item)} item={item} key={item.id} />
           );
         })}
       </div>
