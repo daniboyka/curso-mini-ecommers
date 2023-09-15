@@ -9,7 +9,7 @@ const API2 = "https://api.escuelajs.co/api/v1/products";
 
 export const Home = () => {
   const [items, setItems] = useState(null);
-  const [selecItem, setselecItem] = useState(null);
+  const [selecItem, setselecItem] = useState({});// TODO:poner null si algo no anda
   
   useEffect(() => {
     fetch(API1)

@@ -1,11 +1,11 @@
 // eslint-disable-next-line react/prop-types
 import { PlusCircleIcon } from '@heroicons/react/24/solid'
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context";
 
 
 // eslint-disable-next-line react/prop-types
-export const Card = ({ gatoi, item }) => {
+export const Card = ({ gatoi, item }) => { //TODO: ponerle un nombre mejor a la funcion gatoi
   // console.log("dsadsad",item)
   const {category, title, image, price}=item
   
@@ -16,7 +16,12 @@ export const Card = ({ gatoi, item }) => {
   //funcion q manda la informacion de los detalles a la ventanita
   const showProduct = () => {
     gatoi()
-  Context.openProductDetail()
+  Context.openProductDetail()  
+}
+
+const agregarProductoCarritoYCount = (a) =>{
+  Context.setCount(Context.count + 1)
+  Context.setDataCarritoProductos([...Context.dataCarritoProductos, a])//TODO: cambiar los argumentos "a" ///////   Context.dataCarritoProductos---> aca le decimos q muestre lo que ta tiene y con a--->va agregando los productos nuevos
 }
 
   return (
@@ -27,7 +32,8 @@ export const Card = ({ gatoi, item }) => {
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">{category}</span>
         <img className='w-full h-full object-cover rounded-lg' src={image} alt={title} />
         <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1"
-        onClick={()=> Context.setCount(Context.count + 1)}>
+        onClick={()=> agregarProductoCarritoYCount(item)}>
+          {/*TODO: fijarce como cambiar el problema de q si agregp algo al carrito me abre la pantalla detail */}
           <PlusCircleIcon className='h-16 w-16'/>
           </div>
       </figure>

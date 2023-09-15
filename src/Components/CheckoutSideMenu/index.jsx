@@ -2,8 +2,9 @@ import "../../Components/ProductDetail/index.css"
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context";
+import "../CheckoutSideMenu/index.css"
 
-export const ProductDetail = ({ selecItem }) => {  
+export const CheckoutSideMenu = ({ selecItem }) => {  
 
     
     //console.log(selecItem   ) aca me traigo toda la imfomacion de la api q mapea el componente card
@@ -11,14 +12,10 @@ export const ProductDetail = ({ selecItem }) => {
 
 
     return(
-        <aside className={`${Context.isProductDetailOpen ? 'flex product-detail flex-col fixed right-0 border border-black rounded-lg bg-white' : 'hidden'}`}>
+        <aside className={`${Context.isProductDetailOpen ? 'flex checkout-side-menu  flex-col fixed right-0 border border-black rounded-lg bg-white' : 'hidden'}`}>
             <div className={`flex justify-between items-center p-6`}>
                 <div className='flex flex-col items-center'>
-                <h2 className='font-medium text-xl'>{selecItem  === null ?("dsa"): (`${selecItem.title}`)}</h2>
-                    <figure className='w-10 h-11'>
-                        <img src={selecItem  === null ?("dsa"): (`${selecItem.image}`)} alt={selecItem  === null ?("dsa"): (`${selecItem.title}`)}/>
-                    </figure>
-                    <p>{selecItem  === null ?("dsa"): (`${selecItem.description}`)}</p>
+                <h2 className='font-medium text-xl'>{selecItem  === null ?("dsa"): (`${"My orden"}`)}</h2>                 
                 </div>
                 <div className='cursor-pointer'onClick={() => Context.closeProductDetail()}>                
                 <XCircleIcon className="h-6 w-6 text-black" />

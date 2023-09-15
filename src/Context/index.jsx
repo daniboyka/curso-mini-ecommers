@@ -8,13 +8,19 @@ export const ShoppingCartContext = createContext();
 export const ShoppingCartProvider = ({ children }) => {
     //Shopping Cart- contador de carrito
     const [count, setCount] = useState(0)   
+
     //Poruct Detail- Abrir y cerrar detail
     const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)//esto es el estado inicial q se encarga de cerrar y abrir la ventanita de detalles
     const openProductDetail = () => setIsProductDetailOpen(true)  //esta es la funcion q se encarga de abrir la ventanita de detalles.
     const closeProductDetail = () => setIsProductDetailOpen(false) //esta es la funcion q se encarga de cerrar la ventanita de detalles.
+
     //Product Detail- Show Product
-    const [productToShow, setProductToShow] = useState({})
-    
+    // const [productToShow, setProductToShow] = useState({})
+   
+    //Aca se va almacenar los productos q vayamos agregando con el boton +
+    const [dataCarritoProductos, setDataCarritoProductos] = useState([])
+    console.log(dataCarritoProductos)
+
 
   return (
     <ShoppingCartContext.Provider value={{
@@ -23,8 +29,11 @@ export const ShoppingCartProvider = ({ children }) => {
         openProductDetail,
         closeProductDetail,
         isProductDetailOpen,
-        productToShow,
-        setProductToShow,
+        // productToShow,
+        // setProductToShow,
+        setDataCarritoProductos,
+        dataCarritoProductos,
+        
 
     }}>
         { children }
