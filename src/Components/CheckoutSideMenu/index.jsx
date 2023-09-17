@@ -12,12 +12,13 @@ export const CheckoutSideMenu = ({ selecItem }) => {
 
 
     return(
-        <aside className={`${Context.isProductDetailOpen ? 'flex checkout-side-menu  flex-col fixed right-0 border border-black rounded-lg bg-white' : 'hidden'}`}>
+        <aside className={`${Context.isCheckoutOpen ? 'fixed inset-0 flex checkout-side-menu flex-col right-0 border border-black rounded-lg bg-white' : 'hidden'}`}>
+            checau
             <div className={`flex justify-between items-center p-6`}>
                 <div className='flex flex-col items-center'>
                 <h2 className='font-medium text-xl'>{selecItem  === null ?("dsa"): (`${"My orden"}`)}</h2>                 
                 </div>
-                <div className='cursor-pointer'onClick={() => Context.closeProductDetail()}>                
+                <div className='cursor-pointer'onClick={() => Context.closeCheckout()}>                
                 <XCircleIcon className="h-6 w-6 text-black" />
                 </div>
             </div>

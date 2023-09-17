@@ -12,7 +12,8 @@ export const ProductDetail = ({ selecItem }) => {
 
     return(
         <aside className={`${Context.isProductDetailOpen ? 'flex product-detail flex-col fixed right-0 border border-black rounded-lg bg-white' : 'hidden'}`}>
-            <div className={`flex justify-between items-center p-6`}>
+            detail
+            <div className={`flex justify-between items-center p-6`}>            
                 <div className='flex flex-col items-center'>
                 <h2 className='font-medium text-xl'>{selecItem  === null ?("dsa"): (`${selecItem.title}`)}</h2>
                     <figure className='w-10 h-11'>

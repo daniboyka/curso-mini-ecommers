@@ -21,6 +21,10 @@ export const ShoppingCartProvider = ({ children }) => {
     const [dataCarritoProductos, setDataCarritoProductos] = useState([])
     console.log(dataCarritoProductos)
 
+    //Componente Checkout abrir y cerrar las ventanas
+    const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)//esto es el estado inicial q se encarga de cerrar y abrir la ventanita de detalles
+    const openCheckout = () => setIsCheckoutOpen(true)  //esta es la funcion q se encarga de abrir la ventanita de detalles.
+    const closeCheckout = () => setIsCheckoutOpen(false) //esta es la funcion q se encarga de cerrar la ventanita de detalles.
 
   return (
     <ShoppingCartContext.Provider value={{
@@ -31,10 +35,12 @@ export const ShoppingCartProvider = ({ children }) => {
         isProductDetailOpen,
         // productToShow,
         // setProductToShow,
-        setDataCarritoProductos,
         dataCarritoProductos,
-        
-
+        setDataCarritoProductos,
+        isCheckoutOpen,
+        setIsCheckoutOpen,
+        openCheckout,
+        closeCheckout,
     }}>
         { children }
     </ShoppingCartContext.Provider>

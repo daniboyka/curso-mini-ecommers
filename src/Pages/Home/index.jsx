@@ -30,7 +30,7 @@ export const Home = () => {
           );
         })}
       </div>
-      <ProductDetail selecItem={selecItem}/>
+      <ProductDetail selecItem={selecItem}/>    
     </Layout>
   );
 };

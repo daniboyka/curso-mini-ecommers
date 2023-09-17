@@ -19,9 +19,12 @@ export const Card = ({ gatoi, item }) => { //TODO: ponerle un nombre mejor a la 
   Context.openProductDetail()  
 }
 
-const agregarProductoCarritoYCount = (a) =>{
+const agregarProductoCarritoYCount = (event, a) =>{
+  event.stopPropagation()
   Context.setCount(Context.count + 1)
   Context.setDataCarritoProductos([...Context.dataCarritoProductos, a])//TODO: cambiar los argumentos "a" ///////   Context.dataCarritoProductos---> aca le decimos q muestre lo que ta tiene y con a--->va agregando los productos nuevos
+  Context.closeProductDetail()
+  Context.openCheckout()
 }
 
   return (
@@ -32,7 +35,7 @@ const agregarProductoCarritoYCount = (a) =>{
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">{category}</span>
         <img className='w-full h-full object-cover rounded-lg' src={image} alt={title} />
         <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1"
-        onClick={()=> agregarProductoCarritoYCount(item)}>
+        onClick={(event/*se le pasa un evento, para q solamente escuche el del cheacau por q sino el de detail lo tapa*/)=> agregarProductoCarritoYCount(event,item)}>
           {/*TODO: fijarce como cambiar el problema de q si agregp algo al carrito me abre la pantalla detail */}
           <PlusCircleIcon className='h-16 w-16'/>
           </div>
