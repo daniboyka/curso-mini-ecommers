@@ -19,7 +19,7 @@ export const ShoppingCartProvider = ({ children }) => {
    
     //Aca se va almacenar los productos q vayamos agregando con el boton +
     const [dataCarritoProductos, setDataCarritoProductos] = useState([])
-    console.log(dataCarritoProductos)
+    // console.log(dataCarritoProductos)
 
     //Componente Checkout abrir y cerrar las ventanas
     const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)//esto es el estado inicial q se encarga de cerrar y abrir la ventanita de detalles

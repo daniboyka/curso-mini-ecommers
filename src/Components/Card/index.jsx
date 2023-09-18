@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-import { PlusCircleIcon } from '@heroicons/react/24/solid'
+import { PlusCircleIcon, CheckIcon } from '@heroicons/react/24/solid'
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context";
 
@@ -9,6 +9,7 @@ import { ShoppingCartContext } from "../../Context";
 export const Card = ({ gatoi, item }) => { //TODO: ponerle un nombre mejor a la funcion gatoi
   // console.log("dsadsad",item)
   const {category, title, image, price}=item
+  
   
   const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
   // const [datos, setDatos]= useState(item)
@@ -28,18 +29,38 @@ const agregarProductoCarritoYCount = (event, a) =>{
   Context.openCheckout()
 }
 
-  return (
+const idsDeProductos = Context.dataCarritoProductos.map(producto => producto.id);
+//funcion que se fija si el producto ya esta en el carrito y cambia el icono de + a uno de check
+const check = (id) => {
+  const meFijoSiYaestaenelcarro = idsDeProductos.includes(id).lengt > 0
+ 
+
+  if(meFijoSiYaestaenelcarro) {
+    return(      
+      <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1">    
+          {/*TODO: fijarce como cambiar el problema de q si agregp algo al carrito me abre la pantalla detail */}
+          <CheckIcon className='h-16 w-16'/>
+          </div>
+          )
+        } else {
+          return(
+            <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1"      
+            onClick={(event/*se le pasa un evento, para q solamente escuche el del cheacau por q sino el de detail lo tapa*/)=> agregarProductoCarritoYCount(event,item)}>    
+          <PlusCircleIcon className='h-16 w-16'/>
+          </div>
+    )}
+  
+}
+
+
+return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg"
     onClick={() =>showProduct()}
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">{category}</span>
         <img className='w-full h-full object-cover rounded-lg' src={image} alt={title} />
-        <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1"
-        onClick={(event/*se le pasa un evento, para q solamente escuche el del cheacau por q sino el de detail lo tapa*/)=> agregarProductoCarritoYCount(event,item)}>
-          {/*TODO: fijarce como cambiar el problema de q si agregp algo al carrito me abre la pantalla detail */}
-          <PlusCircleIcon className='h-16 w-16'/>
-          </div>
+        {check(idsDeProductos)}
       </figure>
       <p className='flex justify-between'>
         <span className='text-sm font-light truncate'>{title}</span>

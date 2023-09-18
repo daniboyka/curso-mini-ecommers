@@ -26,7 +26,7 @@ export const CheckoutSideMenu = ({ selecItem }) => {
           <XCircleIcon className="h-6 w-6 text-black" />
         </div>
       </div>
-      <div className="px-6">
+      <div className="px-6 overflow-y-scroll">
         {Context.dataCarritoProductos.map((product) => (
           <OrderCard
             key={product.id}
