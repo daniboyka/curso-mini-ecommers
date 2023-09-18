@@ -1,7 +1,8 @@
-import "../../Components/ProductDetail/index.css"
+// import "../../Components/ProductDetail/index.css"
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context";
+import { OrderCard } from "../OrderCard";
 import "../CheckoutSideMenu/index.css"
 
 export const CheckoutSideMenu = ({ selecItem }) => {  
@@ -21,6 +22,14 @@ export const CheckoutSideMenu = ({ selecItem }) => {
                 <div className='cursor-pointer'onClick={() => Context.closeCheckout()}>                
                 <XCircleIcon className="h-6 w-6 text-black" />
                 </div>
+            </div>
+            <div className='px-6'>
+
+{
+            Context.dataCarritoProductos.map(product =>(
+                <OrderCard key={product.id} title={product.title} image={product.image} price={product.price}/>
+            ))
+}
             </div>
         </aside>
     )
