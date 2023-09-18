@@ -32,10 +32,10 @@ const agregarProductoCarritoYCount = (event, a) =>{
 const idsDeProductos = Context.dataCarritoProductos.map(producto => producto.id);
 //funcion que se fija si el producto ya esta en el carrito y cambia el icono de + a uno de check
 const check = (id) => {
-  const meFijoSiYaestaenelcarro = idsDeProductos.includes(id).lengt > 0
- 
+  // console.log(Context.dataCarritoProductos[0].id)
+  const meFijoSiYaestaenelcarro = Context.dataCarritoProductos.filter(producto => producto.id === id); 
 
-  if(meFijoSiYaestaenelcarro) {
+  if(meFijoSiYaestaenelcarro.length > 0) {
     return(      
       <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1">    
           {/*TODO: fijarce como cambiar el problema de q si agregp algo al carrito me abre la pantalla detail */}
