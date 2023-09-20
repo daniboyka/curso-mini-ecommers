@@ -7,12 +7,11 @@ import { ShoppingCartContext } from "../../Context";
 // eslint-disable-next-line react/prop-types
 export const Card = ({ gatoi, item }) => {
   //TODO: ponerle un nombre mejor a la funcion gatoi
-  // console.log("dsadsad",item)
   const { category, title, image, price, id } = item;
   
 
   const Context = useContext(ShoppingCartContext); //traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
-  // const [datos, setDatos]= useState(item)
+ 
 
   //funcion q manda la informacion de los detalles a la ventanita
   const showProduct = () => {
@@ -23,18 +22,14 @@ export const Card = ({ gatoi, item }) => {
   const agregarProductoCarritoYCount = (event, producto) => {
     event.stopPropagation();
     Context.setCount(Context.count + 1);
-    const probando = new Set([...Context.dataCarritoProductos, producto])
+    const probando = new Set([...Context.dataCarritoProductos, producto])// con new set, no repite el dato q se agrega a la array
     Context.setDataCarritoProductos([...probando])//Context.dataCarritoProductos---> aca le decimos q muestre lo que ta tiene y con producto--->va agregando los productos nuevos
     Context.closeProductDetail();
     Context.openCheckout();
   };
 
-  //funcion que se fija si el producto ya esta en el carrito y cambia el icono de + a uno de check
 
-  const idsDeProductos = Context.dataCarritoProductos
-console.log("luchooo", idsDeProductos)
-  // console.log("carrito", Context.dataCarritoProductos)
-
+  //funcion que se fija si el producto ya esta en el carrito y cambia el icono de + a uno de check  
   const check = (id) => {
     // console.log("id", id)
     const siEstaEnCard = Context.dataCarritoProductos.filter((producto) => producto.id === id).length > 0;
@@ -43,7 +38,7 @@ console.log("luchooo", idsDeProductos)
     if (siEstaEnCard) {
       return (
         <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1">
-          <CheckIcon className="h-16 w-16" />
+          <CheckIcon className="h-6 w-6 text-lg text-green-700"/>
         </div>
       );
     } else {
@@ -51,7 +46,7 @@ console.log("luchooo", idsDeProductos)
         <div
           className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1"
           onClick={(event) => agregarProductoCarritoYCount(event, item)}>
-          <PlusCircleIcon className="h-16 w-16" />
+          <PlusCircleIcon className="h-16 w-16 text-black"/>
         </div>
       );
     }
