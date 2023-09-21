@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { OrderCard } from "../OrderCard";
 import "../CheckoutSideMenu/index.css";
+import { PrecioTotal } from "../../utils";
 
 export const CheckoutSideMenu = ({ selecItem }) => {
   //console.log(selecItem   ) aca me traigo toda la imfomacion de la api q mapea el componente card
@@ -10,7 +11,6 @@ export const CheckoutSideMenu = ({ selecItem }) => {
 
   return (
     <aside
-    
       className={`${
         Context.isCheckoutOpen
           ? "fixed inset-0 flex checkout-side-menu flex-col right-0 border border-black rounded-lg bg-white"
@@ -18,11 +18,6 @@ export const CheckoutSideMenu = ({ selecItem }) => {
       }`}
     >
       <div className={`flex justify-between items-center p-6`}>
-        <div className="flex flex-col items-center">
-          {/* <h2 className="font-medium text-xl">
-            {selecItem === null ? "dsa" : `${"My orden"}`}
-          </h2> */}
-        </div>
         <div className="cursor-pointer" onClick={() => Context.closeCheckout()}>
           <XCircleIcon className="h-6 w-6 text-black" />
         </div>
@@ -38,6 +33,7 @@ export const CheckoutSideMenu = ({ selecItem }) => {
           />
         ))}
       </div>
+      <PrecioTotal/>
     </aside>
   );
 };
