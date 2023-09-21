@@ -26,6 +26,9 @@ export const ShoppingCartProvider = ({ children }) => {
     const openCheckout = () => setIsCheckoutOpen(true)  //esta es la funcion q se encarga de abrir la ventanita de detalles.
     const closeCheckout = () => setIsCheckoutOpen(false) //esta es la funcion q se encarga de cerrar la ventanita de detalles.
 
+    //suma total del precio de los productos
+    const [sumaDelPrecioTotal, setSumaDelPrecioTotal] = useState(0)
+
   return (
     <ShoppingCartContext.Provider value={{
         count,
@@ -41,6 +44,9 @@ export const ShoppingCartProvider = ({ children }) => {
         setIsCheckoutOpen,
         openCheckout,
         closeCheckout,
+        sumaDelPrecioTotal,
+        setSumaDelPrecioTotal,
+
     }}>
         { children }
     </ShoppingCartContext.Provider>

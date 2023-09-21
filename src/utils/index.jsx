@@ -10,7 +10,8 @@ export const PrecioTotal = () => {
   });
 
   //aca sumo todo esos precios
-  const sumaDelPrecioTotal = PrecioTotalProducto.reduce((a, b) => a + b, 0);
+  const valorTotalDeLosPrecios = PrecioTotalProducto.reduce((a, b) => a + b, 0);
+  setSumaDelPrecioTotal(valorTotalDeLosPrecios)
 
   //   console.log(sumaDelPrecioTotal)
 
