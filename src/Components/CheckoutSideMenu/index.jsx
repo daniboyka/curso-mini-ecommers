@@ -10,6 +10,7 @@ export const CheckoutSideMenu = ({ selecItem }) => {
 
   return (
     <aside
+    
       className={`${
         Context.isCheckoutOpen
           ? "fixed inset-0 flex checkout-side-menu flex-col right-0 border border-black rounded-lg bg-white"
@@ -29,6 +30,7 @@ export const CheckoutSideMenu = ({ selecItem }) => {
       <div className="px-6 overflow-y-scroll">
         {Context.dataCarritoProductos.map((product) => (
           <OrderCard
+            id={product.id}
             key={product.id}
             title={product.title}
             image={product.image}

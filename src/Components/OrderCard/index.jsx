@@ -4,17 +4,18 @@ import { ShoppingCartContext } from "../../Context";
 
 export const OrderCard = props =>{
     // eslint-disable-next-line react/prop-types
-    const {title, image, price} = props
+    const {title, image, price, id} = props
 
 //TODO: 1.css mejorar las imaguenes pequeñas, 
 // 2.estudiar el ciclo del componente con las props para ver como se llegan a renderizar 
-//3.hacer q se bloquee el producto para agregar cuando ya este agregado con el id,
 //4.correr toda la ventana mas para la derecha
-//5.hacer el scroll para cuando agregue muchos productos.
-//6. closeCheckout cierra todo y lo q tiene q hacer es quitarlo de la array, creo q con un filter
+
 const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
 
-
+const eliminarProductoDelCarrito = (id) => {
+    const nuevosElementos = Context.dataCarritoProductos.filter((elemento) => elemento.id !== id)  
+    Context.setDataCarritoProductos([...nuevosElementos])
+}
     return(
 <div className='flex justify-between items-center mb-2'>
     <div className='flex items-center gap-2'>
@@ -29,7 +30,7 @@ const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las f
         <p className='text-lg font-medium'>
             {price}
         </p> 
-        <div className="cursor-pointer" onClick={() => Context.closeCheckout()}>
+        <div className="cursor-pointer" onClick={() => eliminarProductoDelCarrito(id)}>
         <XCircleIcon className="h-6 w-6 text-black cursor-pointer" />        
             </div>         
     </div>
