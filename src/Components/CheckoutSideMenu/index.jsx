@@ -53,8 +53,9 @@ useEffect(() => {
           />
         ))}
       </div>
-      <PrecioTotal/>
-      <button onClick={()=> validacionCheckout()}>checkaot</button>
+      <PrecioTotal/>      
+      <button className='bg-blue-700 text-white' onClick={()=> validacionCheckout()}>Checkout</button>
+      
     </aside>
   );
 };
