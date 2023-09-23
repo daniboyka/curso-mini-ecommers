@@ -28,7 +28,11 @@ export const ShoppingCartProvider = ({ children }) => {
 
     //suma total del precio de los productos
     const [sumaDelPrecioTotal, setSumaDelPrecioTotal] = useState(0)
-
+// console.log("SUMAR PRECIO",sumaDelPrecioTotal)
+    //estado de order de compra
+    const [order, setOrder] = useState([])
+   
+   
   return (
     <ShoppingCartContext.Provider value={{
         count,
@@ -46,6 +50,10 @@ export const ShoppingCartProvider = ({ children }) => {
         closeCheckout,
         sumaDelPrecioTotal,
         setSumaDelPrecioTotal,
+        order,
+        setOrder,
+      
+        
 
     }}>
         { children }

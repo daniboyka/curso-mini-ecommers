@@ -2,13 +2,16 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context";
 
+
 export const OrderCard = props =>{
     // eslint-disable-next-line react/prop-types
     const {title, image, price, id} = props
 
 //TODO: 1.css mejorar las imaguenes pequeñas, 
 // 2.estudiar el ciclo del componente con las props para ver como se llegan a renderizar 
-//4.correr toda la ventana mas para la derecha
+//3.correr toda la ventana mas para la derecha
+//4. Practicar cambiar de funciones entre componente, moviendo sus parametros y datos
+//5.fijarce q onda el error VM2782:1 Warning: Cannot update a component (`ShoppingCartProvider`) while rendering a different component (`PrecioTotal`). To locate the bad setState() call inside
 
 const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
 

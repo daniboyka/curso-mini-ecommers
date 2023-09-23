@@ -21,9 +21,10 @@ export const Card = ({ gatoi, item }) => {
 
   const agregarProductoCarritoYCount = (event, productoQueSeVaAgregando) => {
     event.stopPropagation();
-    Context.setCount(Context.count + 1);
+    Context.setCount(Context.count);    
     const probando = new Set([...Context.dataCarritoProductos, productoQueSeVaAgregando])// con new set, no repite el dato q se agrega a la array    
     Context.setDataCarritoProductos([...probando])//Context.dataCarritoProductos---> aca le decimos q muestre lo que ta tiene y con producto--->va agregando los productos nuevos
+    // console.log(Context.dataCarritoProductos.length + 1)
     Context.closeProductDetail();
     Context.openCheckout();
   };
@@ -33,7 +34,7 @@ export const Card = ({ gatoi, item }) => {
   const check = (id) => {
     // console.log("id", id)
     const siEstaEnCard = Context.dataCarritoProductos.filter((producto) => producto.id === id).length > 0;
-    // console.log("filter", siEstaEnCard)
+    
 
     if (siEstaEnCard) {
       return (

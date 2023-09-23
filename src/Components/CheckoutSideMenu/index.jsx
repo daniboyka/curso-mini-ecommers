@@ -1,5 +1,5 @@
 import { XCircleIcon } from "@heroicons/react/24/solid";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { OrderCard } from "../OrderCard";
 import "../CheckoutSideMenu/index.css";
@@ -8,6 +8,26 @@ import { PrecioTotal } from "../../utils";
 export const CheckoutSideMenu = ({ selecItem }) => {
   //console.log(selecItem   ) aca me traigo toda la imfomacion de la api q mapea el componente card
   const Context = useContext(ShoppingCartContext); //traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
+  const [totalPrecio, setTotalPrecio] = useState(0);
+  
+const validacionCheckout = () =>{
+  const ordetToAdd ={
+    data:"01.07.23",
+    productos:Context.dataCarritoProductos,
+    cantidad:Context.dataCarritoProductos.length,
+     totalPrecio: totalPrecio,// Usamos el valor almacenado localmente POR QUE NO SE ME ACTUALIZABA LOS PRECIOS TOTALES
+  }  
+  Context.setOrder([...Context.order, ordetToAdd])
+  Context.setDataCarritoProductos([])  
+}
+
+
+
+useEffect(() => {
+  // Actualizamos el valor local cuando sumaDelPrecioTotal cambia
+  setTotalPrecio(Context.sumaDelPrecioTotal);
+}, [Context.sumaDelPrecioTotal]);
+
 
   return (
     <aside
@@ -34,6 +54,7 @@ export const CheckoutSideMenu = ({ selecItem }) => {
         ))}
       </div>
       <PrecioTotal/>
+      <button onClick={()=> validacionCheckout()}>checkaot</button>
     </aside>
   );
 };
