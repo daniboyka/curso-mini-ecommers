@@ -8,7 +8,7 @@ import { PrecioTotal } from "../../utils";
 export const CheckoutSideMenu = ({ selecItem }) => {
   //console.log(selecItem   ) aca me traigo toda la imfomacion de la api q mapea el componente card
   const Context = useContext(ShoppingCartContext); //traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
-  const [totalPrecio, setTotalPrecio] = useState(0);
+  const [totalPrecio, setTotalPrecio] = useState(0);  // Actualizamos el valor local cuando sumaDelPrecioTotal cambia
   
 const validacionCheckout = () =>{
   const ordetToAdd ={

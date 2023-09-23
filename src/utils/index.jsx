@@ -37,9 +37,8 @@ export const PrecioTotal = () => {
     const valorTotalDeLosPrecios = Context.dataCarritoProductos.reduce(
       (total, producto) => total + producto.price,
       0
-    );
- 
-console.log(valorTotalDeLosPrecios)
+    ); 
+
     // Actualiza el estado sumaDelPrecioTotal en el contexto
     Context.setSumaDelPrecioTotal(valorTotalDeLosPrecios);
 
@@ -60,7 +59,7 @@ console.log(valorTotalDeLosPrecios)
     <div className="pl-6 w-full flex justify-between items-center">
       <p className="text-2xl font-medium">Total:</p>
       <span className="text-2xl font-medium pr-6">
-        {Context.sumaDelPrecioTotal}
+        {Context.sumaDelPrecioTotal.toFixed(2)}
       </span>
     </div>
   );

@@ -51,10 +51,7 @@ export const ShoppingCartProvider = ({ children }) => {
         sumaDelPrecioTotal,
         setSumaDelPrecioTotal,
         order,
-        setOrder,
-      
-        
-
+        setOrder,  
     }}>
         { children }
     </ShoppingCartContext.Provider>
