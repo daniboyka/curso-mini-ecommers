@@ -42,7 +42,7 @@ useEffect(() => {
           <XCircleIcon className="h-6 w-6 text-black" />
         </div>
       </div>
-      <div className="px-6 overflow-y-scroll">
+      <div className="px-6 overflow-y-scroll h-80">
         {Context.dataCarritoProductos.map((product) => (
           <OrderCard
             id={product.id}
@@ -53,8 +53,8 @@ useEffect(() => {
           />
         ))}
       </div>
-      <PrecioTotal/>      
-      <button className='bg-blue-700 text-white' onClick={()=> validacionCheckout()}>Checkout</button>
+      <PrecioTotal className='mb-2'/>      
+      <button className='bg-blue-700 text-white flex-1 mr-10 ml-10 mt-10 mb-10 rounded-sm pt-2 pb-2' onClick={()=> validacionCheckout()}>Checkout</button>
       
     </aside>
   );
