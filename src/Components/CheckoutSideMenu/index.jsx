@@ -33,7 +33,7 @@ useEffect(() => {
     <aside
       className={`${
         Context.isCheckoutOpen
-          ? "fixed inset-0 flex checkout-side-menu flex-col right-0 border border-black rounded-lg bg-white"
+          ? "fixed left-auto inset-0 flex checkout-side-menu flex-col mt-20 border border-black rounded-lg bg-white"
           : "hidden"
       }`}
     >
