@@ -37,10 +37,10 @@ const eliminarProductoDelCarrito = (id) => {
     <div className='flex items-center gap-2'>
         <p className='text-lg font-medium'>
             {price}
-        </p> 
+        </p> { eliminarProductoDelCarrito &&
         <div className="cursor-pointer" onClick={() => eliminarProductoDelCarrito(id)}>
         <XCircleIcon className="h-6 w-6 text-black cursor-pointer" />        
-            </div>         
+        </div>}         
     </div>
 </div>
     )

@@ -4,6 +4,7 @@ import { ShoppingCartContext } from "../../Context";
 import { OrderCard } from "../OrderCard";
 import "../CheckoutSideMenu/index.css";
 import { PrecioTotal } from "../../utils";
+import { Link } from "react-router-dom";
 
 export const CheckoutSideMenu = ({ selecItem }) => {
   //console.log(selecItem   ) aca me traigo toda la imfomacion de la api q mapea el componente card
@@ -53,8 +54,10 @@ useEffect(() => {
           />
         ))}
       </div>
-      <PrecioTotal className='mb-2'/>      
+      <PrecioTotal className='mb-2'/> 
+      <Link to='/my-orders/last'>
       <button className='bg-blue-700 text-white flex-1 mr-10 ml-10 mt-10 mb-10 rounded-sm pt-2 pb-2' onClick={()=> validacionCheckout()}>Checkout</button>
+      </Link>     
       
     </aside>
   );

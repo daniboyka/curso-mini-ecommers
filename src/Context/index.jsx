@@ -31,7 +31,7 @@ export const ShoppingCartProvider = ({ children }) => {
 // console.log("SUMAR PRECIO",sumaDelPrecioTotal)
     //estado de order de compra
     const [order, setOrder] = useState([])
-    console.log("Pre Checauot", order)
+
    
    
   return (

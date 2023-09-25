@@ -56,7 +56,7 @@ export const PrecioTotal = () => {
   // complejo.
 
   return (
-    <div className="pl-6 w-full flex justify-between items-center">
+    <div className="pl-6 w-full flex flex-1 justify-between items-end">
       <p className="text-2xl font-medium">Total:</p>
       <span className="text-2xl font-medium pr-6">
         {Context.sumaDelPrecioTotal.toFixed(2)}
