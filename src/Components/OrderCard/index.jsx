@@ -5,7 +5,7 @@ import { ShoppingCartContext } from "../../Context";
 
 export const OrderCard = props =>{
     // eslint-disable-next-line react/prop-types
-    const {title, image, price, id} = props
+    const {title, image, price, id, handleDelet} = props
 
 //TODO: 1.css mejorar las imaguenes pequeñas, 
 // 2.estudiar el ciclo del componente con las props para ver como se llegan a renderizar 
@@ -15,10 +15,14 @@ export const OrderCard = props =>{
 
 const Context = useContext(ShoppingCartContext)//traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
 
-const eliminarProductoDelCarrito = (id) => {
-    const nuevosElementos = Context.dataCarritoProductos.filter((elemento) => elemento.id !== id)  
-    Context.setDataCarritoProductos([...nuevosElementos])
-}
+// const manejoFilter = (id) =>{
+//     handleDelet(id)
+// }
+
+// const eliminarProductoDelCarrito = (id) => {
+//     const nuevosElementos = Context.dataCarritoProductos.filter((elemento) => elemento.id !== id)  
+//     Context.setDataCarritoProductos([...nuevosElementos])
+//}
     return(
 <div className='flex justify-between items-center mb-2'>
     <div className='flex items-center gap-2'>
@@ -37,8 +41,8 @@ const eliminarProductoDelCarrito = (id) => {
     <div className='flex items-center gap-2'>
         <p className='text-lg font-medium'>
             {price}
-        </p> { eliminarProductoDelCarrito &&
-        <div className="cursor-pointer" onClick={() => eliminarProductoDelCarrito(id)}>
+        </p> {handleDelet &&
+        <div className="cursor-pointer" onClick={() => handleDelet(id)}>
         <XCircleIcon className="h-6 w-6 text-black cursor-pointer" />        
         </div>}         
     </div>

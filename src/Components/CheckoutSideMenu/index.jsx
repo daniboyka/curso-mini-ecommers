@@ -20,9 +20,13 @@ const validacionCheckout = () =>{
   }  
   Context.setOrder([...Context.order, ordetToAdd])
   Context.setDataCarritoProductos([])  
+  Context.closeCheckout()
 }
 
-
+const eliminarProductoDelCarrito = (id) => {
+  const nuevosElementos = Context.dataCarritoProductos.filter((elemento) => elemento.id !== id)  
+  Context.setDataCarritoProductos([...nuevosElementos])
+}
 
 useEffect(() => {
   // Actualizamos el valor local cuando sumaDelPrecioTotal cambia
@@ -51,6 +55,7 @@ useEffect(() => {
             title={product.title}
             image={product.image}
             price={product.price}
+            handleDelet={eliminarProductoDelCarrito}
           />
         ))}
       </div>
