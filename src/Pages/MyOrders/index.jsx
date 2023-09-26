@@ -11,7 +11,7 @@ export const MyOrders = () => {
 
   return( 
   <Layout>
-    My Order danito
+    My Order todas kas 
     <div className='flex  align-baseline gap-10 w-80 '>
     {Context.order.map((order, index) => (
       <Link key={index} to={`/my-orders/${index}`}>
