@@ -8,19 +8,23 @@ export const OrdersCard = (props) => {
     
     
   const Context = useContext(ShoppingCartContext); //traemos el Contexto(todas las funciones y variables), con esto le decimos que queremos q lea el estado global
-  
+  //TODO: mejorar css de estos cosos 
   return(
-    <div className="flex justify-between items-center mb-2 border border-black">
-        <p>
-            <span>
+    <div className='flex justify-between items-center  border border-black p-4 rounded-md mb-4 mt-2 w-80'>
+        <div className='flex justify-between w-full'>
+            <p className='flex flex-col'>
+            <span className='text-2xl font-medium'>
                 01.07.23
             </span>
-        <span>
-            {productoTotales}
+        <span className='text-2xl font-medium'>
+            {productoTotales} Articulos
         </span>
-        <span>
-            {precioTotal}
+            </p>
+            <p>
+        <span className='text-2xl font-medium pr-6'>
+            ${precioTotal}
         </span>
-        </p>
+            </p>
+        </div>
     </div>
   )};

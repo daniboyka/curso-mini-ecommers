@@ -8,6 +8,11 @@ export const Navbar = () => {
 
 let EstaActivo = 'underline underline-offset-4'
 
+const handleCharacter = (evento) =>{
+    Context.setCaracter(evento.target.value)
+}
+
+
     return(
         <nav className='flex justify-between top-0 fixed z-10 w-full py-5 px-8 text-base font-normal'>
             <ul className='flex items-center gap-3'>
@@ -65,6 +70,14 @@ let EstaActivo = 'underline underline-offset-4'
                     </NavLink>
                 </li>
             </ul>
+            <div>
+            <input
+            className='border border-black rounded-md w-72 p-1 focus:outline-none'
+            type='text'
+            placeholder='Buscar Producto...'
+            onChange={handleCharacter}
+            />
+            </div>
             <ul className='flex item-center gap-3'>
                 <li className='text-black/60'>
                     danielcaz@gmail.com

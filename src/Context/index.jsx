@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ShoppingCartContext = createContext();
 
@@ -28,9 +28,25 @@ export const ShoppingCartProvider = ({ children }) => {
 
     //suma total del precio de los productos
     const [sumaDelPrecioTotal, setSumaDelPrecioTotal] = useState(0)
-// console.log("SUMAR PRECIO",sumaDelPrecioTotal)
+
     //estado de order de compra
     const [order, setOrder] = useState([])
+
+   // Buscador de Productos: caracteres del Input 
+    const [caracter, setCaracter] = useState(null)
+
+    //Toda la informacions del Fetch
+    const [items, setItems] = useState(null);
+
+    const API1 = "https://fakestoreapi.com/products";
+    const API2 = "https://api.escuelajs.co/api/v1/products";
+
+    useEffect(() => {
+        fetch(API1)
+        .then((response) => response.json())     
+        .then((data) => setItems(data));
+      }, []);
+    
 
    
    
@@ -52,7 +68,11 @@ export const ShoppingCartProvider = ({ children }) => {
         sumaDelPrecioTotal,
         setSumaDelPrecioTotal,
         order,
-        setOrder,  
+        setOrder,
+        caracter,
+        setCaracter,
+        items,
+        setItems,
     }}>
         { children }
     </ShoppingCartContext.Provider>
