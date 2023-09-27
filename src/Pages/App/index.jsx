@@ -9,10 +9,12 @@ import { NotFound } from "../NotFound/index";
 import { Signln } from "../Signln/index";
 import { Navbar } from "../../Components/Navbar";
 import { CheckoutSideMenu } from "../../Components/CheckoutSideMenu";
+import { Clothes } from "../../Components/Clothes";
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/", element: <Home /> },
+    { path: "/clothes", element: <Clothes /> },
     { path: "/my-account", element: <MyAccount /> },
     { path: "/my-orders", element: <MyOrders /> },
     { path: "/my-orders/last", element: <MyOrder /> },

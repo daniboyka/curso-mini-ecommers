@@ -12,7 +12,7 @@ export const Home = () => {
 
   const renderView = () => {
     if (Context.caracter?.length > 0) {
-      if (Context.filteredItems.length > 0) {
+      if (Context.filteredItems?.length > 0) {
         return Context.filteredItems?.map((item) => {
           return (
             <Card gatoi={() => pasarDato(item)} item={item} key={item.id} />

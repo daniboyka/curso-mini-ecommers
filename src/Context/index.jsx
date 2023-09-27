@@ -34,7 +34,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
    // Buscador de Productos: caracteres del Input 
     const [caracter, setCaracter] = useState(null)
-
+    const [caracterCategoria, setCaracterCategoria] = useState(null)
     //Toda la informacions del Fetch
     const [items, setItems] = useState(null);
     const [filteredItems, setFilteredItems] = useState(null);
@@ -55,7 +55,7 @@ const filteredItemsByTitle = (items, caracter) =>{
 useEffect(() => {
    if(caracter) setFilteredItems(filteredItemsByTitle(items, caracter))
   }, [items, caracter]);
-console.log('filtrad', filteredItems)
+
 
    
   return (
@@ -83,6 +83,9 @@ console.log('filtrad', filteredItems)
         setItems,
         filteredItems,
         setFilteredItems,
+        caracterCategoria,
+        setCaracterCategoria,
+
     }}>
         { children }
     </ShoppingCartContext.Provider>
