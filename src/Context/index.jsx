@@ -37,6 +37,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
     //Toda la informacions del Fetch
     const [items, setItems] = useState(null);
+    const [filteredItems, setFilteredItems] = useState(null);
 
     const API1 = "https://fakestoreapi.com/products";
     const API2 = "https://api.escuelajs.co/api/v1/products";
@@ -47,8 +48,15 @@ export const ShoppingCartProvider = ({ children }) => {
         .then((data) => setItems(data));
       }, []);
     
+const filteredItemsByTitle = (items, caracter) =>{
+    return items?.filter(item => item.title.toLowerCase().includes(caracter.toLowerCase()))
+}
+ 
+useEffect(() => {
+   if(caracter) setFilteredItems(filteredItemsByTitle(items, caracter))
+  }, [items, caracter]);
+console.log('filtrad', filteredItems)
 
-   
    
   return (
     <ShoppingCartContext.Provider value={{
@@ -73,6 +81,8 @@ export const ShoppingCartProvider = ({ children }) => {
         setCaracter,
         items,
         setItems,
+        filteredItems,
+        setFilteredItems,
     }}>
         { children }
     </ShoppingCartContext.Provider>
