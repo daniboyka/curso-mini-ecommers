@@ -6,9 +6,18 @@ import { BotonDeCategorias } from "../BotonDeCategorias";
 
 export const Clothes = () => {
   const [getCategory, setGetCategory] = useState({});
-  console.log(getCategory);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  
+ 
+  const handleCategoryClick = (categoria) => {
+    setSelectedCategory(categoria);
+  };
+  
+  
+  
+  
   const Context = useContext(ShoppingCartContext);
-
+  
   const handleCharacter = (evento) => {
     Context.setCaracterCategoria(evento.target.value);
   };
@@ -16,22 +25,22 @@ export const Clothes = () => {
   const pasarDato = (todosLosDatos) => {
     Context.setCaracterCategoria(todosLosDatos);
   };
-
-  const filteredItemsByCategory = (items, caracterCategoria) => {
+  
+  const filteredItemsByCategory = (items, selectedCategory) => {
     return items?.filter((item) =>
-      item.category.toLowerCase().includes(caracterCategoria.toLowerCase())
-    );
-  };
-
+    item.category.toLowerCase() === selectedCategory.toLowerCase()
+  );
+};
+  
   useEffect(() => {
-    if (Context.caracterCategoria)
+    if (selectedCategory)
       setGetCategory(
-        filteredItemsByCategory(Context.items, Context.caracterCategoria)
-      );
-  }, [Context.items, Context.caracterCategoria]);
+        filteredItemsByCategory(Context.items, selectedCategory)
+      );      
+  }, [Context.items, selectedCategory]);
 
   const renderViewFilter = () => {
-    if (Context.caracterCategoria?.length > 0) {
+    if (selectedCategory?.length > 0) {
       if (getCategory?.length > 0) {
         return getCategory?.map((item) => {
           return (
@@ -55,6 +64,7 @@ export const Clothes = () => {
           <BotonDeCategorias
             key={producto.id}
             stringCategoria={producto.category}
+            onClick={() => handleCategoryClick(producto.category)} 
           />
         ))}
       </div>
