@@ -7,7 +7,7 @@ import { BotonDeCategorias } from "../BotonDeCategorias";
 export const Clothes = () => {
   const [getCategory, setGetCategory] = useState({});
   const [selectedCategory, setSelectedCategory] = useState(null);
-  
+  const [uniqueCategories, setUniqueCategories] = useState(new Set());
  
   const handleCategoryClick = (categoria) => {
     setSelectedCategory(categoria);
@@ -31,6 +31,15 @@ export const Clothes = () => {
     item.category.toLowerCase() === selectedCategory.toLowerCase()
   );
 };
+
+useEffect(() => {
+  if (Context.items) {
+    // Filtrar categorías únicas y guardarlas en el estado local
+    const categories = new Set(Context.items.map((producto) => producto.category));
+    setUniqueCategories(categories);
+  }
+}, [Context.items]);
+
   
   useEffect(() => {
     if (selectedCategory)
@@ -59,12 +68,12 @@ export const Clothes = () => {
 
   return (
     <Layout>
-    <div className='flex flex-wrap'>
-        {Context.items?.map((producto) => (
+      <div className='flex flex-wrap'>
+        {[...uniqueCategories].map((categoria) => (//TODO: lucho aca no entiendo q le pasa en el map
           <BotonDeCategorias
-            key={producto.id}
-            stringCategoria={producto.category}
-            onClick={() => handleCategoryClick(producto.category)} 
+            key={categoria}
+            stringCategoria={categoria}
+            onClick={() => handleCategoryClick(categoria)} 
           />
         ))}
       </div>
