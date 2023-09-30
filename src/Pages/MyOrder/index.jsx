@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 export const MyOrder = () => {
   const Context = useContext(ShoppingCartContext);
   const currentPath = window.location.pathname
-  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
-  console.log(index)
+  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)  
   if(index === 'last') index = Context.order?.length - 1
 
 

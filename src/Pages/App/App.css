@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ocultar la flecha del navegador en el select */
+#underline_select::-ms-expand,
+#underline_select::-webkit-select-placeholder {
+  display: none;
+}

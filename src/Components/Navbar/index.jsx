@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../Context"
 import {  ShoppingBagIcon } from '@heroicons/react/24/outline'
+import { MySelectComponent } from "../NavSelect"
 
 export const Navbar = () => {
     const Context = useContext(ShoppingCartContext)//traemos el Contexto, con esto le decimos que queremos q lea el estado global
@@ -22,53 +23,22 @@ const handleCharacter = (evento) =>{
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/'
-                    className={({ isActive }) =>
-                    isActive ? EstaActivo : undefined
-                  }>
-                        All
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/clothes'
-                    className={({ isActive }) =>
-                    isActive ? EstaActivo : undefined
-                  }>
-                        Clothes
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/electronics'
-                    className={({ isActive }) =>
-                    isActive ? EstaActivo : undefined
-                  }>
-                        Electronics
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/fornitures'
-                    className={({ isActive }) =>
-                    isActive ? EstaActivo : undefined
-                  }>
-                        Fornitures
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/toys'
-                    className={({ isActive }) =>
-                    isActive ? EstaActivo : undefined
-                  }>
-                        Toys
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/others'
-                    className={({ isActive }) =>
-                    isActive ? EstaActivo : undefined
-                  }>
-                        Others
-                    </NavLink>
-                </li>
+  <NavLink
+    to="/"
+    className={({ isActive }) =>
+      isActive ? EstaActivo : undefined
+    }
+    onClick={() => {
+      Context.setCaracter(null); // Restablece el filtro por caracteres
+      Context.setGetCaracterOpcion(""); // Restablece el filtro por categoría
+      Context.setFilteredItems(null); // Restablece los filtros
+      console.log("Clic en All");
+    }}
+  >
+    All
+  </NavLink>
+</li>
+                <MySelectComponent/>
             </ul>
             <div>
             <input

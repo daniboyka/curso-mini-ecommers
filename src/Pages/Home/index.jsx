@@ -9,22 +9,15 @@ import { ShoppingCartContext } from "../../Context";
 export const Home = () => {
   const [selecItem, setselecItem] = useState({}); // TODO:poner null si algo no anda
   const Context = useContext(ShoppingCartContext);
-
   const renderView = () => {
-    if (Context.caracter?.length > 0) {
-      if (Context.filteredItems?.length > 0) {
-        return Context.filteredItems?.map((item) => {
-          return (
-            <Card gatoi={() => pasarDato(item)} item={item} key={item.id} />
-          );
-        });
-      } else {
-        return <div>No se econtro producto :(</div>;
-      }
+    if (Context.filteredItems === null || Context.filteredItems.length === 0) {
+      return Context.items?.map((item) => (
+        <Card gatoi={() => pasarDato(item)} item={item} key={item.id} />
+      ));
     } else {
-      return Context.items?.map((item) => {
-        return <Card gatoi={() => pasarDato(item)} item={item} key={item.id} />;
-      });
+      return Context.filteredItems?.map((item) => (
+        <Card gatoi={() => pasarDato(item)} item={item} key={item.id} />
+      ));
     }
   };
 
