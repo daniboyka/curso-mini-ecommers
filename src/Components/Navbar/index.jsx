@@ -32,8 +32,7 @@ const handleCharacter = (evento) =>{
       Context.setCaracter(null); // Restablece el filtro por caracteres
       Context.setGetCaracterOpcion(""); // Restablece el filtro por categoría
       Context.setFilteredItems(null); // Restablece los filtros
-      console.log("Clic en All");
-    }}
+   }}
   >
     All
   </NavLink>

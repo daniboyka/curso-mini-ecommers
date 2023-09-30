@@ -67,8 +67,7 @@ export const ShoppingCartProvider = ({ children }) => {
       return filterByCaracteres(items, getCaracterOpcion);
     }
     if (tipoDeBusqueda === 'POR_TITULO_POR_CATEGORIA') {
-        console.log("entreaaaaaaaa?")
-      return filterByCaracteres(items, getCaracterOpcion).filter(item => item.title.toLowerCase().includes(caracter.toLowerCase()));
+     return filterByCaracteres(items, getCaracterOpcion).filter(item => item.title.toLowerCase().includes(caracter.toLowerCase()));
    
     }
     if (!tipoDeBusqueda) {
