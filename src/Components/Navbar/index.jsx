@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { MySelectComponent } from "../NavSelect";
+import Home from "../../img/home-christmas-icon_icon-icons.com_48890.ico"
 
 export const Navbar = () => {
   const Context = useContext(ShoppingCartContext); //traemos el Contexto, con esto le decimos que queremos q lea el estado global
@@ -14,23 +15,28 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between item-center top-0 fixed z-10 mt-0 w-full py-5 px-8 text-base font-normal bg-orange-700">
+    <nav className="flex justify-between item-center top-0 fixed z-10 mt-0 w-full py-5 px-8 text-base font-normal bg-orange-700 ">
       <ul className="flex items-center gap-3 h-4 mt-0 mb-0">
-        <li className="font-semibold text-lg">
+        <li className="font-semibold text-2xl">
           <NavLink to="/">Shopi</NavLink>
         </li>
         <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? EstaActivo : undefined)}
-            onClick={() => {
-              Context.setCaracter(null); // Restablece el filtro por caracteres
-              Context.setGetCaracterOpcion(""); // Restablece el filtro por categoría
-              Context.setFilteredItems(null); // Restablece los filtros
-            }}
-          >
-            All
-          </NavLink>
+        <NavLink
+    to="/"
+    className={({ isActive }) => (isActive ? EstaActivo : undefined)}
+    onClick={() => {
+      Context.setCaracter(null);
+      Context.setGetCaracterOpcion("");
+      Context.setFilteredItems(null);
+    }}
+  >
+    <img
+      className='h-10 w-10 object-scale-down'
+      src={Home}
+      alt="home"
+      style={{ minWidth: '40px', minHeight: '40px' }} // Establece un ancho mínimo
+    />
+  </NavLink>
         </li>
         <MySelectComponent />
       <div>

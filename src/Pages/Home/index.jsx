@@ -31,7 +31,7 @@ export const Home = () => {
   };
   return (
     <Layout>
-      home
+      <h1 className='text-3xl mt-2 mb-6 font-semibold'>Productos</h1>
       <div className="grid grid-cols-4 gap-4 w-full max-w-screen-xl">
         {renderView()}
       </div>

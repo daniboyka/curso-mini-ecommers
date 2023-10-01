@@ -14,7 +14,7 @@ export const MySelectComponent = () => {
 
 <select
   id="underline_select"
-  className="block py-2.5 px-0 w-32 text-sm text-gray-500 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+  className="block rounded-md pl-3  px-0 w-44 h-8 text-base text-gray-500 appearance-none dark:text-gray-400 focus:outline-none border border-black"
   size="1"
   onChange={handleOptionChange}
   value={Context.getCaracterOpcion || "placeholder"}
