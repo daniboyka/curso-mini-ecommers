@@ -55,7 +55,7 @@ export const Card = ({ gatoi, item }) => {
 
   return (
     <div
-      className="bg-orange-700 orange-700/75 cursor-pointer border-2 border-orange-700/50 w-56 h-60 rounded-xl"
+      className=" bg-orange-700 orange-700/75 cursor-pointer  border-2 border-orange-700/50 w-44 h-48 rounded-xl"
       onClick={() => showProduct()}
     >
       <figure className="relative mb-2 w-full h-4/5">
@@ -70,7 +70,7 @@ export const Card = ({ gatoi, item }) => {
         {check(id)}
       </figure>
       <p className="flex justify-between">
-        <span className="text-sm font-light truncate">{title}</span>
+        <span className="text-sm font-light truncate mr-2">{title}</span>
         <span className="text-lg font-medium mr-2">${price}</span>
       </p>
     </div>

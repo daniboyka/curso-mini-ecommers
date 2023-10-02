@@ -32,7 +32,7 @@ export const Home = () => {
   return (
     <Layout>
       <h1 className='text-3xl mt-2 mb-6 font-semibold'>Productos</h1>
-      <div className="grid grid-cols-4 gap-4 w-full max-w-screen-xl">
+      <div className="grid grid-cols-4 gap-4 w-full max-w-4xl">
         {renderView()}
       </div>
       <ProductDetail selecItem={selecItem} />
