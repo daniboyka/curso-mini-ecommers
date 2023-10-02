@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-import { PlusCircleIcon, CheckIcon } from "@heroicons/react/24/solid";
+import { ShoppingCartIcon, CheckIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 
@@ -45,9 +45,9 @@ export const Card = ({ gatoi, item }) => {
     } else {
       return (
         <div
-          className="absolute top-0 right-0 flex justify-center items-center bg-white w-9 h-9 rounded-full m-2 p-1"
+          className="absolute top-0 right-0 flex justify-center items-center bg-orange-700 w-9  h-9 rounded-full m-2 "
           onClick={(event) => agregarProductoCarritoYCount(event, item)}>
-          <PlusCircleIcon className="h-16 w-16 text-black"/>
+          <ShoppingCartIcon className="h-8 w-8 p-1 text-white"/>
         </div>
       );
     }
@@ -55,7 +55,7 @@ export const Card = ({ gatoi, item }) => {
 
   return (
     <div
-      className="bg-white cursor-pointer w-56 h-60 rounded-lg"
+      className="bg-orange-700 orange-700/75 cursor-pointer border-2 border-orange-700/50 w-56 h-60 rounded-xl"
       onClick={() => showProduct()}
     >
       <figure className="relative mb-2 w-full h-4/5">
@@ -63,7 +63,7 @@ export const Card = ({ gatoi, item }) => {
           {category}
         </span>
         <img
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full p-1 object-cover rounded-xl"
           src={image}
           alt={title}
         />
