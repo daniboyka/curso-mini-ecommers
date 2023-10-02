@@ -41,7 +41,7 @@ export const Navbar = () => {
         <MySelectComponent />
       <div>
         <input
-          className="border border-black rounded-md w-72 p-1 focus:outline-none"
+          className="border bg-gray-800 text-gray-300 text-base appearance-none dark:text-gray-400 border-black rounded-md w-72 p-1 focus:outline-none"
           type="text"
           placeholder="Buscar Producto..."
           onChange={handleCharacter}

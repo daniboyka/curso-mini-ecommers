@@ -14,13 +14,13 @@ export const MySelectComponent = () => {
 
 <select
   id="underline_select"
-  className="block rounded-md pl-3  px-0 w-44 h-8 text-base text-gray-500 appearance-none dark:text-gray-400 focus:outline-none border border-black"
+  className="block rounded-md pl-3  px-0 w-44 h-8 text-base bg-gray-800  text-gray-300 appearance-none dark:text-gray-400 focus:outline-none border border-black"
   size="1"
   onChange={handleOptionChange}
   value={Context.getCaracterOpcion || "placeholder"}
 >
   <option value="placeholder" disabled hidden>
-    Categorias
+    Categorias...
   </option>
   {[...Context.uniqueCategories]?.map((categoria) => (
     <option key={categoria} value={categoria}>
