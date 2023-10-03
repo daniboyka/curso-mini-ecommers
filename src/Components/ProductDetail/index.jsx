@@ -12,7 +12,7 @@ export const ProductDetail = ({ selecItem }) => {
     <aside
       className={`${
         Context.isProductDetailOpen
-          ? "flex product-detail flex-col fixed right-0  border-8 rounded-xl border-orange-700/50 bg-emerald-700/75"
+          ? "flex product-detail flex-col fixed right-0 border-2 rounded-xl border-orange-700/50 bg-zinc-300 overflow-y-scroll"
           : "hidden"
       }`}
     >
@@ -24,16 +24,16 @@ export const ProductDetail = ({ selecItem }) => {
         </div>
       <div className={`flex justify-between items-center `}>
         <div className="flex flex-col items-center">
-          <h2 className="font-medium text-xl pl-4 pr-4">
+          <h2 className="font-medium text-xl pl-4 pr-4 mt-4">
             {selecItem === null ? "no hay producto" : `${selecItem.title}`}
           </h2>
           <figure className="w-50 h-56 mt-4">
-            <img className="w-full h-full"
+            <img className="w-full pl-3 pr-3 h-56 object-cover "
               src={selecItem === null ? "no hay producto" : `${selecItem.image}`}
               alt={selecItem === null ? "no hay producto" : `${selecItem.title}`}
             />
           </figure>
-          <p className='w-auto'>{selecItem === null ? "no hay producto" : `${selecItem.description}`}</p>
+          <p className='w-auto mt-5 p-2'>{selecItem === null ? "no hay producto" : `${selecItem.description}`}</p>
         </div>
       </div>
     </aside>

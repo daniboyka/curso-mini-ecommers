@@ -13,12 +13,13 @@ export const MyOrder = () => {
 
 
   return (
-    <Layout>
-      <div className='flex justify-between align-baseline w-80 mb-6'>
+
+        <Layout>
+      <div className='flex justify-between mt-4 align-baseline w-80 mb-6 bg-zinc-500/'>
         <Link to='/my-orders'>
-        <ChevronLeftIcon className='className="h-6 w-6 text-black cursor-pointer'/>
+        <ChevronLeftIcon className='h-10 w-10 cursor-pointer  bg-zinc-500/'/>
         </Link>
-        <h1>My Order una onden</h1>
+        <h1 className="text-3xl te" >Pre orden</h1>
       </div>
       <div className='flex  align-baseline gap-10 w-80'>
         {Context.order?.[index]?.productos.map((product) => (
@@ -32,5 +33,5 @@ export const MyOrder = () => {
         ))}
       </div>
     </Layout>
-  );
+  )      
 };

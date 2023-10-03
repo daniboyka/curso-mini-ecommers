@@ -30,12 +30,14 @@ export const Home = () => {
     setselecItem(todosLosDatos);
   };
   return (
-    <Layout>
+    <div className="min-h-screen bg-zinc-500/75">
+      <div className='flex flex-col items-center mt-14'>   
       <h1 className='text-3xl mt-2 mb-6 font-semibold'>Productos</h1>
       <div className="grid grid-cols-4 gap-4 w-full max-w-4xl">
         {renderView()}
       </div>
-      <ProductDetail selecItem={selecItem} />
-    </Layout>
+      <ProductDetail selecItem={selecItem} />    
+      </div>
+    </div>
   );
 };

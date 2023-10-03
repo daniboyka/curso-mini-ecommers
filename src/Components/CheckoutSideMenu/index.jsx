@@ -38,13 +38,13 @@ useEffect(() => {
     <aside
       className={`${
         Context.isCheckoutOpen
-          ? "fixed left-auto inset-0 flex checkout-side-menu flex-col mt-20 border border-black rounded-lg bg-white"
+          ? "fixed left-auto inset-0 flex flex-col checkout-side-menu mt-14 border-2 border-orange-700/50 rounded-lg  bg-zinc-300"
           : "hidden"
       }`}
     >
-      <div className={`flex justify-between items-center p-6`}>
+      <div className={`flex justify-center  items-center p-6`}>
         <div className="cursor-pointer" onClick={() => Context.closeCheckout()}>
-          <XCircleIcon className="h-6 w-6 text-black" />
+          <XCircleIcon className="h-8 w-8text-black hover:border-2 border-green-700 rounded-full" />
         </div>
       </div>
       <div className="px-6 overflow-y-scroll h-80">
@@ -61,7 +61,7 @@ useEffect(() => {
       </div>
       <PrecioTotal className='mb-2'/> 
       <Link to='/my-orders/last'>
-      <button className='bg-blue-700 text-white flex-1 mr-10 ml-10 mt-10 mb-10 rounded-sm pt-2 pb-2' onClick={()=> validacionCheckout()}>Checkout</button>
+      <button className='bg-blue-700 text-white flex-1 mr-10  mt-10 mb-10 w-full  rounded-md pt-2 pb-2' onClick={()=> validacionCheckout()}>Checkout</button>
       </Link>     
       
     </aside>
