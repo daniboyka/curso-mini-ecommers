@@ -15,7 +15,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between item-center top-0 fixed z-10 mt-0 w-full py-5 px-8 text-base font-normal bg-orange-700 ">
+    <nav className="flex justify-between item-center top-0 fixed z-10 mt-0 w-full py-5 px-8 text-base font-normal bg-indigo-100 ">
       <ul className="flex relative items-center gap-3 h-4 mt-0 mb-0">
         <li className="font-semibold text-2xl">
           <NavLink to="/">Shopi</NavLink>

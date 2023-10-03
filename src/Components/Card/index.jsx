@@ -45,9 +45,9 @@ export const Card = ({ gatoi, item }) => {
     } else {
       return (
         <div
-          className="absolute top-0 right-0 flex justify-center items-center bg-orange-700 w-9  h-9 rounded-full m-2 "
+          className="absolute top-0 right-0 flex justify-center items-center bg-black w-9 h-9 rounded-full m-2 hover:border-2 border-green-700/"
           onClick={(event) => agregarProductoCarritoYCount(event, item)}>
-          <ShoppingCartIcon className="h-8 w-8 p-1 text-white"/>
+          <ShoppingCartIcon className="h-8 w-8 p-1 text-emerald-400"/>
         </div>
       );
     }
@@ -55,7 +55,7 @@ export const Card = ({ gatoi, item }) => {
 
   return (
     <div
-      className=" bg-orange-700 orange-700/75 cursor-pointer  border-2 border-orange-700/50 w-44 h-48 rounded-xl"
+      className=" bg-orange-950/50 orange-700/75 cursor-pointer w-44 h-48 rounded-xl"
       onClick={() => showProduct()}
     >
       <figure className="relative mb-2 w-full h-4/5">
